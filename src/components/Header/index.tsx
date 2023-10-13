@@ -9,8 +9,9 @@ export function Header() {
       <h1>{uppercase("bcit")} Assignment Tracker</h1>
       <form className={styles.newAssignmentForm}>
         <input placeholder="Add a new assignment" type="text" />
-        <button>
-          Create <AiOutlinePlusCircle size={20} />
+        {/* button should be disabled when no assignment has been entered into the input */ }
+        <button disabled>
+          <AiOutlinePlusCircle size={20} />
         </button>
       </form>
     </header>
