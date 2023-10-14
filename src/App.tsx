@@ -9,10 +9,16 @@ function App() {
     setCreateAssignment([...createAssignment, assignment]);
   }
 
+  const handleDeleteAssignment = (index: number) => {
+    const updateAssignment = [...createAssignment];
+    updateAssignment.splice(index, 1);
+    setCreateAssignment(updateAssignment);
+  }
+
   return (
     <>
       <Header handleAssignment={handleCreateAssignments} />
-      <Assignments createAssignment={createAssignment} />
+      <Assignments createAssignment={createAssignment} onDeletedAssignment={handleDeleteAssignment} />
     </>
   );
 }

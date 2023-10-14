@@ -1,9 +1,13 @@
 import { Assignment } from "../Assignment";
 import styles from "./assignments.module.css";
 
+interface AssignmentsProps {
+  createAssignment: string[];
+  onDeletedAssignment: (index: number) => void;
+}
 
 
-export function Assignments({createAssignment}: {createAssignment: string[]})  {
+export function Assignments({createAssignment, onDeletedAssignment }: AssignmentsProps)  {
 
   return (
     <section className={styles.assignments}>
@@ -21,7 +25,11 @@ export function Assignments({createAssignment}: {createAssignment: string[]})  {
 
       <div className={styles.list}>
         {createAssignment.map((assignment, index) => (
-          <Assignment key={index} title={assignment} />
+          <Assignment 
+          key={index} 
+          title={assignment} 
+          onDeletedAssignment={() => onDeletedAssignment(index)}
+          />
         ))}
       
       </div>
