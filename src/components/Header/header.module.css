@@ -48,5 +48,6 @@
 }
 
 .newAssignmentForm button:disabled {
-  background: red;
+  background: rgb(179, 179, 179);
+  cursor: not-allowed;
 }

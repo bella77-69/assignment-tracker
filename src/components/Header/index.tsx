@@ -3,8 +3,19 @@ import styles from "./header.module.css";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { uppercase } from "../../helpers/stringHelpers";
 
-export function Header() {
+interface HeaderProps {
+  handleAssignment: (assignment: string) => void;
+}
+export function Header({handleAssignment}: HeaderProps) {
   const [input, setInput] = useState<string>("");
+
+  const handleCreateAssignments = () => {
+    if(input) {
+      handleAssignment(input);
+      setInput("");
+      console.log(input);
+    }
+  }
 
   return (
     <header className={styles.header}>
@@ -17,10 +28,14 @@ export function Header() {
         value={input}
         onChange={(e) => setInput(e.target.value)}
         />
-        <button disabled={!input}>
+        <button 
+        disabled={!input}
+        onClick={handleCreateAssignments}
+        >
           <AiOutlinePlusCircle size={20} />
         </button>
       </form>
+      
     </header>
   );
 }
