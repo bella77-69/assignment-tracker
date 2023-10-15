@@ -2,7 +2,7 @@ import styles from "./assignment.module.css";
 import { TbTrash } from "react-icons/tb";
 import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 
-interface AssignmentProps {
+type AssignmentProps = {
   title: string;
   onDeletedAssignment: () => void;
   isCompleted: boolean;

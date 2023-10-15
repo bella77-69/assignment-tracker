@@ -3,7 +3,7 @@ import styles from "./header.module.css";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { uppercase } from "../../helpers/stringHelpers";
 
-interface HeaderProps {
+type HeaderProps = {
   handleAssignment: (assignment: string) => void;
 }
 export function Header({ handleAssignment }: HeaderProps) {
