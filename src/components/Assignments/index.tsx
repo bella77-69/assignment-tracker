@@ -8,9 +8,7 @@ interface AssignmentsProps {
 }
 
 export function Assignments({createAssignment, onDeletedAssignment}: AssignmentsProps)  {
-  const [checked, setChecked] = useState(
-    new Array(createAssignment.length).fill(false)
-  );
+  const [checked, setChecked] = useState(createAssignment.map(() => false));
 
   const handleChecked = (index: number) => {
     const newCompletedAssignments = [...checked];
