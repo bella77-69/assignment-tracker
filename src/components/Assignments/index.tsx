@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Assignment } from "../Assignment";
 import styles from "./assignments.module.css";
 
@@ -6,8 +7,17 @@ interface AssignmentsProps {
   onDeletedAssignment: (index: number) => void;
 }
 
+export function Assignments({createAssignment, onDeletedAssignment}: AssignmentsProps)  {
+  const [checked, setChecked] = useState(
+    new Array(createAssignment.length).fill(false)
+  );
 
-export function Assignments({createAssignment, onDeletedAssignment }: AssignmentsProps)  {
+  const handleChecked = (index: number) => {
+    const newCompletedAssignments = [...checked];
+    newCompletedAssignments[index] = !checked[index];
+    setChecked(newCompletedAssignments);
+  };
+
 
   return (
     <section className={styles.assignments}>
@@ -19,7 +29,9 @@ export function Assignments({createAssignment, onDeletedAssignment }: Assignment
 
         <div>
           <p className={styles.textPurple}>Completed Assignments</p>
-          <span>0 of {createAssignment.length}</span>
+          <span>{checked.filter((check) => check).length} of {createAssignment.length}</span>
+           
+
         </div>
       </header>
 
@@ -29,7 +41,9 @@ export function Assignments({createAssignment, onDeletedAssignment }: Assignment
           key={index} 
           title={assignment} 
           onDeletedAssignment={() => onDeletedAssignment(index)}
-          />
+          isCompleted={checked[index]}
+          handleChecked={() => handleChecked(index)}
+        />
         ))}
       
       </div>
