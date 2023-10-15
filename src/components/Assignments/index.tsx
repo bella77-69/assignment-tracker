@@ -7,7 +7,10 @@ interface AssignmentsProps {
   onDeletedAssignment: (index: number) => void;
 }
 
-export function Assignments({createAssignment, onDeletedAssignment}: AssignmentsProps)  {
+export function Assignments({
+  createAssignment,
+  onDeletedAssignment,
+}: AssignmentsProps) {
   const [checked, setChecked] = useState(createAssignment.map(() => false));
 
   const handleChecked = (index: number) => {
@@ -15,7 +18,6 @@ export function Assignments({createAssignment, onDeletedAssignment}: Assignments
     newCompletedAssignments[index] = !checked[index];
     setChecked(newCompletedAssignments);
   };
-
 
   return (
     <section className={styles.assignments}>
@@ -27,23 +29,23 @@ export function Assignments({createAssignment, onDeletedAssignment}: Assignments
 
         <div>
           <p className={styles.textPurple}>Completed Assignments</p>
-          <span>{checked.filter((check) => check).length} of {createAssignment.length}</span>
-           
-
+          <span>
+            {checked.filter((check) => check).length} of{" "}
+            {createAssignment.length}
+          </span>
         </div>
       </header>
 
       <div className={styles.list}>
         {createAssignment.map((assignment, index) => (
-          <Assignment 
-          key={index} 
-          title={assignment} 
-          onDeletedAssignment={() => onDeletedAssignment(index)}
-          isCompleted={checked[index]}
-          handleChecked={() => handleChecked(index)}
-        />
+          <Assignment
+            key={index}
+            title={assignment}
+            onDeletedAssignment={() => onDeletedAssignment(index)}
+            isCompleted={checked[index]}
+            handleChecked={() => handleChecked(index)}
+          />
         ))}
-      
       </div>
     </section>
   );
