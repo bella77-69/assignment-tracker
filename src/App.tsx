@@ -27,7 +27,7 @@ function App() {
         <span
         className='bubbleBackground'
           style={{
-            backgroundColor: bubbleBackgroundColor,
+            backgroundColor: bubbleBackgroundColor
           }}
         >
           {dueInDays}
@@ -39,7 +39,6 @@ function App() {
     setInput("");
     setSelected(null);
   };
-  
   const handleDeleteAssignment = (index: number) => {
     const updatedAssignment = [...createAssignment];
     updatedAssignment.splice(index, 1);
