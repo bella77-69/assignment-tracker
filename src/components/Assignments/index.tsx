@@ -3,9 +3,9 @@ import { Assignment } from "../Assignment";
 import styles from "./assignments.module.css";
 
 type AssignmentsProps = {
-  createAssignment: string[];
+  createAssignment: JSX.Element[];
   onDeletedAssignment: (index: number) => void;
-}
+};
 
 export function Assignments({
   createAssignment,

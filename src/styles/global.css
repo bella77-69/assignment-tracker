@@ -14,3 +14,10 @@ body {
 button {
   cursor: pointer;
 }
+
+.bubbleBackground {
+  background-color: bubbleBackgroundColor;
+  border-radius: 8px;
+  padding: 5px;
+  margin-left: 5px;
+}

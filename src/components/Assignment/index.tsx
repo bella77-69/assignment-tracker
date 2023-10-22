@@ -3,11 +3,11 @@ import { TbTrash } from "react-icons/tb";
 import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 
 type AssignmentProps = {
-  title: string;
+  title: JSX.Element;
   onDeletedAssignment: () => void;
   isCompleted: boolean;
   handleChecked: () => void;
-}
+};
 
 export function Assignment({
   title,
@@ -19,7 +19,6 @@ export function Assignment({
     <div className={styles.assignment}>
       <button className={styles.checkContainer} onClick={handleChecked}>
         {isCompleted ? <IoIosCheckmarkCircleOutline size={20} /> : <div />}
-     
       </button>
       <p className={isCompleted ? styles.textCompleted : ""}>{title}</p>
 

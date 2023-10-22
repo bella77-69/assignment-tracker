@@ -51,3 +51,58 @@
   background: rgb(179, 179, 179);
   cursor: not-allowed;
 }
+
+.calendarIcon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  padding: 0 1rem;
+  justify-content: center;
+  background-color: rgb(179, 179, 179);
+  border-radius: 8px;
+}
+
+.calendarIcon::selection {
+  background: rgb(179, 179, 179);
+  cursor: not-allowed;
+}
+
+.calendarPopover {
+  position: absolute;
+  width: 100%;
+  color: #fff;
+}
+
+.calendar {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 8px;
+  background: #262626;
+  padding: 20px;
+  width: 50%;
+  height: 50vh;
+  margin: 0 !important;
+
+}
+
+.calendarTitle{
+  font-size: 16px;
+  color: #fff;
+}
+
+.dueDate {
+  display: flex;
+  padding: 1rem 0;
+}
+
+.dueDate p {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  color: #ccce6a;
+}
