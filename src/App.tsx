@@ -3,6 +3,8 @@ import { Header } from "./components/Header";
 import { Assignments } from "./components/Assignments";
 
 function App() {
+
+  // type for createAssignment state is JSX.Element[] so it can store JSX.Element type from the handleCreateAssignments function
   const [createAssignment, setCreateAssignment] = useState<JSX.Element[]>([]);
   const [selected, setSelected] = useState<Date | null>(null);
   const [showCalendar, setShowCalendar] = useState<boolean>(false);
@@ -21,6 +23,7 @@ function App() {
     const dueInDays =
       daysUntilDue > 1 ? `Due in ${daysUntilDue} days` : "Due tomorrow";
 
+      //JSX.Element that is updating the state createAssignment with the input and dueInDays
     const assignmentWithDate = (
       <>
         {input}
@@ -39,6 +42,7 @@ function App() {
     setInput("");
     setSelected(null);
   };
+  
   const handleDeleteAssignment = (index: number) => {
     const updatedAssignment = [...createAssignment];
     updatedAssignment.splice(index, 1);
